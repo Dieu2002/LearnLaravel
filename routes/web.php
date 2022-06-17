@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\signupController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\addProductController;
+use App\Http\Controllers\CreateTable;
 
 
 
@@ -41,6 +42,7 @@ Route::get('chitietsp',[PageController::class,'getChitietSP']);
 Route::get('lienhe',[PageController::class,'getContact']);
 Route::get('about',[PageController::class,'getAbout']);
 
-
+//
+Route::get('table',[CreateTable::class,'createTable']);
 
 
