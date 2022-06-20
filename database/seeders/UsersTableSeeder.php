@@ -14,8 +14,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert(
-            []
-        );
+        $arr=[
+            'user_name'=>'admin',
+            'user_pass'=>md5(1),
+            'user_level'=>1
+        ];
+        DB::table('users')->insert($arr);
     }
 }

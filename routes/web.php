@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\addProductController;
 use App\Http\Controllers\CreateTable;
+use App\Http\Controllers\CategoryController;
+
 
 
 
@@ -44,5 +46,7 @@ Route::get('about',[PageController::class,'getAbout']);
 
 //
 Route::get('table',[CreateTable::class,'createTable']);
+Route::get('cate',[CategoryController::class,'Category']);
+
 
 
