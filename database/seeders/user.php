@@ -2,13 +2,12 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-
-
-class tb1 extends Seeder
+class user extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,9 +16,10 @@ class tb1 extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-            'name'=>Str::random('10')
+        DB::table('user')->insert([
+            'name'=>Str::random('10'),
+            'address'=>Str::random('50')
         ]
-        );  
+        );
     }
 }
