@@ -20,20 +20,31 @@
         $arr=$_SESSION['product'];
         foreach($arr as $key =>$value){
             $imageTemp='images/'.$value['image'];
+
+            return`
+            <div class="card col-md-3 col-12 mr-2">
+            <div class="card" style="width: 18rem;">
+                  
+                    <img src="" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">a</h5>
+                        <h5 class="card-title">d</h5>
+                        <p class="card-text">v</p>
+                        <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+            `;
+
         }
     }
+        ?>
+        
+
+    <?php
+       
      ?>
-     <div class="card col-md-3 col-12 mr-2">
-        <div class="card" style="width: 18rem;">
-                <img src={{asset("$imageTemp")}} class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $value['name']?></h5>
-                    <h5 class="card-title"><?php echo $value['price']?></h5>
-                    <p class="card-text"><?php echo $value['description']?></p>
-                    <a href="#" class="btn btn-primary">Buy</a>
-                </div>
-             </div>
-        </div>
-    </div>
+     
 </body>
 </html>

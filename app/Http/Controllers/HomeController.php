@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Homerequest;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -10,7 +12,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function addRoom(HotelRequest $Request)
+    public function addProduct(Homerequest $Request)
     {
         $image = $Request->file('anh');
         $path = $image->move('anh', $image->getClientOriginalName());
@@ -31,7 +33,7 @@ class HomeController extends Controller
                 session_start();
             $_SESSION['product'][] = $newProduct;
         }
-        echo '<script>alert("Thêm phòng thành công")</script>';
+        echo '<script>alert("Thêm sản phẩm thành công")</script>';
         return view('home');
     }
 }
