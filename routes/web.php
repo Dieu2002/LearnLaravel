@@ -67,9 +67,14 @@ Route::get('/',function(){
 });
 ///
 
-Route::get('/slide',[PageOneController::class,'getIndex']);
+Route::get('',[PageOneController::class,'getIndex']);
 Route::get('/type/{id}',[PageOneController::class,'getLoaiSp']);
 Route::get('/loaisp',[PageOneController::class,'getLoaiSp']);
+Route::get('/chitiet',[PageOneController::class,'getChitiet']);
+Route::get('/lienhe',[PageOneController::class,'getLienhe']);
+Route::get('/about',[PageOneController::class,'getAbout']);
+
+
 
 
 
