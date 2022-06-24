@@ -73,6 +73,11 @@ Route::get('/loaisp',[PageOneController::class,'getLoaiSp']);
 Route::get('/chitiet',[PageOneController::class,'getChitiet']);
 Route::get('/lienhe',[PageOneController::class,'getLienhe']);
 Route::get('/about',[PageOneController::class,'getAbout']);
+// CRUD ngày 24/06
+Route::get('/admin-add-form',[PageOneController::class,'getAdminAdd'])->name('add-product');
+Route::post('/admin-add-form',[PageOneController::class,'postAdminAdd']);
+
+
 
 
 
