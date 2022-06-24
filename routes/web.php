@@ -60,14 +60,18 @@ Route::post('showsp',[addProductController::class,'showProduct']);
 Route::get('/',function(){
     $data =DB::table('products')->get();
     //$users= DB::table('customers')->orderBy('name','desc')->get();
-   // $users= DB::table('customers')->first();// lấy giá trị đầu tiên của bảng 
-//$users= DB::table('customers')->find(3);// vị trí thứ ba trong bảng customer 
+    //$users= DB::table('customers')->first();// lấy giá trị đầu tiên của bảng 
+    //$users= DB::table('customers')->find(3);// vị trí thứ ba trong bảng customer 
 
-    print_r($users);
+    //print_r($users);
 });
 ///
 
 Route::get('/slide',[PageOneController::class,'getIndex']);
+Route::get('/type/{id}',[PageOneController::class,'getLoaiSp']);
+Route::get('/loaisp',[PageOneController::class,'getLoaiSp']);
+
+
 
 
 

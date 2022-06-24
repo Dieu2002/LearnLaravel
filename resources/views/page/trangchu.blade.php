@@ -17,14 +17,20 @@
 								@foreach($new_product as $new)
 								<div class="col-sm-3">
 									<div class="single-item">
+										@if($new->promotion_price!=0)
+										<div class="ribbon-wrapper"><div class="ribbon sale">I love you</div></div>
+										@endif
 										<div class="single-item-header">
 											<a href="product.html"><img src="/source/image/product/{{$new->image}}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{$new->name}}</p>
 											<p class="single-item-price">
+												@if($new->promotion_price==0)
 												<span class="flash-del">{{$new->unit_price}} đồng</span>
+												@else
 												<span class="flash-sale">{{$new->promotion_price}} đồng</span>
+												@endif
 											</p>
 										</div>
 										<div class="single-item-caption">
@@ -36,7 +42,7 @@
 								</div>
 								@endforeach
 							</div>
-							<div class="row">{{$new_product->links()}}</div>
+							<div class="row">{{$new_product->links("pagination::bootstrap-4")}}</div>
 						</div> <!-- .beta-products-list -->
 
 						<div class="space50">&nbsp;</div>
@@ -71,6 +77,7 @@
 								@endforeach
 						
 						</div> <!-- .beta-products-list -->
+						<div class="row">{{$new_product->links("pagination::bootstrap-4")}}</div>
 					</div>
 				</div> <!-- end section with sidebar and main content -->
 
