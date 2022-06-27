@@ -34,5 +34,6 @@ class AppServiceProvider extends ServiceProvider
             $product_new=Product::where('new',1)->orderBy('id','DESC')->skip(1)->take(8)->get();
             $view->with('product_new',$product_new);
         });
+        //View::share('loai_sp', ProductType::all());
     }
 }

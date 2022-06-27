@@ -47,6 +47,8 @@ Route::get('loaisp',[PageController::class,'getLoaiSP']);
 Route::get('chitietsp',[PageController::class,'getChitietSP']);
 Route::get('lienhe',[PageController::class,'getContact']);
 Route::get('about',[PageController::class,'getAbout']);
+Route::get('detail',[PageController::class,'getDetail']);
+
 
 //
 Route::get('table',[CreateTable::class,'createTable']);
@@ -67,15 +69,24 @@ Route::get('/',function(){
 });
 ///
 
-Route::get('',[PageOneController::class,'getIndex']);
+Route::get('/',[PageOneController::class,'getIndexHome']);
 Route::get('/type/{id}',[PageOneController::class,'getLoaiSp']);
 Route::get('/loaisp',[PageOneController::class,'getLoaiSp']);
 Route::get('/chitiet',[PageOneController::class,'getChitiet']);
 Route::get('/lienhe',[PageOneController::class,'getLienhe']);
 Route::get('/about',[PageOneController::class,'getAbout']);
 // CRUD ngày 24/06
-Route::get('/admin-add-form',[PageOneController::class,'getAdminAdd'])->name('add-product');
-Route::post('/admin-add-form',[PageOneController::class,'postAdminAdd']);
+
+Route::get('/admin',[PageOneController::class,'getAdminAdd']);
+Route::post('/admin',[PageOneController::class,'postAdminAdd'])->name('admin-add-form');
+
+Route::get('/showadmin',[PageOneController::class,'getIndexAdmin']);
+
+
+
+Route::get('/admin-edit-form/{id}',[PageOneController::class,'getAdminEdit']);
+Route::post('/admin-edit',[PageOneController::class,'postAdminEdit']);
+Route::post('/admin-delete/{id}',[PageOneController::class,'postAdminDelete']);
 
 
 
