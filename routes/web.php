@@ -69,10 +69,10 @@ Route::get('/',function(){
 });
 ///
 
-Route::get('/',[PageOneController::class,'getIndexHome']);
+Route::get('',[PageOneController::class,'getIndexHome']);
 Route::get('/type/{id}',[PageOneController::class,'getLoaiSp']);
 Route::get('/loaisp',[PageOneController::class,'getLoaiSp']);
-Route::get('/chitiet',[PageOneController::class,'getChitiet']);
+Route::get('/detail/{id}',[PageOneController::class,'getDetail']);
 Route::get('/lienhe',[PageOneController::class,'getLienhe']);
 Route::get('/about',[PageOneController::class,'getAbout']);
 // CRUD ngày 24/06

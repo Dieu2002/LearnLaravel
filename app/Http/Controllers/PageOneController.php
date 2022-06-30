@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Slide;
 use App\Models\Product;
+use App\Models\Comment;
 use App\Models\ProductType;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,21 +25,21 @@ class PageOneController extends Controller
         $sp_khac=Product::where('id_type','<>',$type)->paginate(3);
         return view('page.loaisanpham',compact('sp_theoloai','type_product','sp_khac'));
     }
-    public function getChitiet(){
-        return view('page.chitietsp');
-    }
+    // public function getChitiet(){
+    //     return view('page.chitietsp');
+    // }
     public function getLienhe(){
         return view('page.lienhe');
     }
     public function getAbout(){
         return view('page.about');
     }
-    // public function getDetail(Request $request){
-    //     $sanpham=Product::where::('id',$request->id)->first();
-    //     $splienquan=Product::where('id','<>',$sanpham->id,'and','id_type','=',$sanpham->id_type,)->paginate(3);
-    //     $comment = Comment::where('id_product',$request->$id)->get();
-    //     return view('page.chitietsp',compact('sanpham','splienquan','comments'));
-    // }
+    public function getDetail(Request $request){
+        $sanpham =Product::where('id',$request->id)->first();
+        $splienquan=Product::where('id','<>',$sanpham->id,'and','id_type','=',$sanpham->id_type,)->paginate(3);
+        $comments=Comment::where('id_product',$request->id)->get();
+        return view('page.chitietsp',compact('sanpham','splienquan','comments'));
+    }
    // crud 
     public function getAdminAdd(){
     return view ('pageAdmin.formAdd');
@@ -76,7 +77,7 @@ class PageOneController extends Controller
     }
 
     public function getAdminEdit($id){
-        $product = product::find($id);
+        $product = Product::find($id);
         return view('pageAdmin.formEdit')->with('product',$product);
     }
 
@@ -106,6 +107,6 @@ class PageOneController extends Controller
     public function postAdminDelete($id){
         $product =Product::find($id);
         $product->delete();
-        return redirect('/showadmin');
+        return redirect('/showadmin');//chuyển trang 
     }
 }
