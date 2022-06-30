@@ -10,6 +10,8 @@ use App\Http\Controllers\CreateTable;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageOneController;
+use App\Http\Controllers\NewsController;
+
 
 
 
@@ -69,26 +71,35 @@ Route::get('/',function(){
 });
 ///
 
-Route::get('',[PageOneController::class,'getIndexHome']);
-Route::get('/type/{id}',[PageOneController::class,'getLoaiSp']);
-Route::get('/loaisp',[PageOneController::class,'getLoaiSp']);
-Route::get('/detail/{id}',[PageOneController::class,'getDetail']);
-Route::get('/lienhe',[PageOneController::class,'getLienhe']);
-Route::get('/about',[PageOneController::class,'getAbout']);
+// Route::get('',[PageOneController::class,'getIndexHome']);
+// Route::get('/type/{id}',[PageOneController::class,'getLoaiSp']);
+// Route::get('/loaisp',[PageOneController::class,'getLoaiSp']);
+// Route::get('/detail/{id}',[PageOneController::class,'getDetail']);
+// Route::get('/lienhe',[PageOneController::class,'getLienhe']);
+// Route::get('/about',[PageOneController::class,'getAbout']);
 // CRUD ngày 24/06
 
-Route::get('/admin',[PageOneController::class,'getAdminAdd']);
-Route::post('/admin',[PageOneController::class,'postAdminAdd'])->name('admin-add-form');
+// Route::get('/admin',[PageOneController::class,'getAdminAdd']);
+// Route::post('/admin',[PageOneController::class,'postAdminAdd'])->name('admin-add-form');
 
-Route::get('/showadmin',[PageOneController::class,'getIndexAdmin']);
-
-
-
-Route::get('/admin-edit-form/{id}',[PageOneController::class,'getAdminEdit']);
-Route::post('/admin-edit',[PageOneController::class,'postAdminEdit']);
-Route::post('/admin-delete/{id}',[PageOneController::class,'postAdminDelete']);
+// Route::get('/showadmin',[PageOneController::class,'getIndexAdmin']);
 
 
+
+// Route::get('/admin-edit-form/{id}',[PageOneController::class,'getAdminEdit']);
+// Route::post('/admin-edit',[PageOneController::class,'postAdminEdit']);
+// Route::post('/admin-delete/{id}',[PageOneController::class,'postAdminDelete']);
+
+/// New 
+
+Route::get('/newadd',[NewsController::class,'getAdd']);
+Route::post('/newadd',[NewsController::class,'postAdminAdd'])->name('admin-add-form');;
+
+Route::get('/showad',[NewsController::class,'getAdmin']);
+
+Route::get('/new-edit-form/{id}',[NewsController::class,'getAdminEdit']);
+Route::post('/new-edit',[NewsController::class,'postAdminEdit']);
+Route::post('/new-delete/{id}',[NewsController::class,'postAdminDelete']);
 
 
 

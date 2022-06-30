@@ -9,7 +9,7 @@
             </div>                                                          
             <div class="pull-right">                                                            
               <div class="beta-breadcrumb font-large">                                                          
-                <a href="/trangchu">Home</a> / <span>Details</span>                                                         
+                <a href="">Home</a> / <span>Details</span>                                                         
               </div>                                                            
             </div>                                                          
             <div class="clearfix"></div>                                                            

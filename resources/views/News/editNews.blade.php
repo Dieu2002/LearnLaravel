@@ -1,50 +1,46 @@
-@extends('master')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FashionShop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
+</head>
 
 <div class="space50">&nbsp;</div>
 <div class="container beta-relative">
     <div class="pull-left">
-        <h2>Edit product</h2>
+        <h2>Edit new</h2>
     </div>
     <div class="space50">&nbsp;</div>
     @include('error')
     <div class="container">
-        <form action="admin-edit" method="POST" enctype="multipart/form-data">
+        <form action="new-edit" method="POST" enctype="multipart/form-data">
             @csrf
-
             <div class="form-group">
-                <label for='editName'>ID</label>
-                <input type="number" class="form-control" name="editId" value="{{$product->id}}" readonly>
+                <label for='editTitle'>ID</label>
+                <input type="number" class="form-control" name="editId" value="{{$news->Id}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for='editTitle'>Title</label>
+                <input type="text" class="form-control" name="editTitle" id="editTitle" placeholder="Enter title" value="{{$news->Title}}" required>
             </div>
 
             <div class="form-group">
-                <label for='editName'>Name</label>
-                <input type="text" class="form-control" name="editName" id="editName" placeholder="Enter name" value="{{$product->name}}" required>
+                <label for='editAuthor'>Author</label>
+                <input type="text"  class="form-control" name="editAuthor" id="editAuthor" placeholder="Enter author" value="{{$news->Author}}" required>
             </div>
 
             <div class="form-group">
-                <label for='editPrice'>Price</label>
-                <input type="number" min=10000 class="form-control" name="editPrice" id="editPrice" placeholder="Enter price" value="{{$product->unit_price}}" required>
-            </div>
-
-            <div class="form-group">
-                <label for='editPromotionPrice'>Promotion Price</label>
-                <input type="number" min=10000 class="form-control" name="editPromotionPrice" id="editPromotionPrice" value="{{$product->promotion_price}}" placeholder="Enter promotion price">
-            </div>
-
-            <div class="form-group">
-                <label for='editUnit'>Unit</label>
-                <input type="text" class="form-control" name="editUnit" id="editUnit" value="{{$product->unit}}" placeholder="Enter unit" required>
-            </div>
-
-            <div class="form-group">
-                <label for='editNew'>New</label>
-                <input type="number" min=0 class="form-control" name="editNew" id="editNew" value="{{$product->new}}" placeholder="Enter new" required>
-            </div>
-
-            <div class="form-group">
-                <label for='editType'>Type</label>
-                <input type="text" class="form-control" name="editType" id="editType" value="{{$product->id_type}}" placeholder="Enter type" required>
+                <label for='editDate'>Date</label>
+                <input type="date"class="form-control" name="editDate" id="editDate" value="{{$news->Date}}" placeholder="Enter date">
             </div>
 
             <div class="form-group">
@@ -53,7 +49,7 @@
             </div>
 
             <div class="form-group">
-                <img id="preview-image-before-upload" src="source/image/product/{{$product->image}}" alt="preview image" style="max-height: 250px;">
+                <img id="preview-image-before-upload" src="/Image/news/{{$news->image}}" alt="preview image" style="max-height: 250px;">
                 <script type="text/javascript">
                     $(document).ready(function(e) {
                         $('#inputImage').change(function() {
@@ -69,7 +65,7 @@
 
             <div class="form-group">
                 <label for='editDescription'>Description</label>
-                <textarea name="editDescription" required>{{$product->description}}</textarea>
+                <textarea name="editDescription" rows="4" cols="100" required>{{$news->Description}}</textarea>
                 <script>
                     CKEDITOR.replace('editDescription');
                 </script>
@@ -81,4 +77,3 @@
     <div class="space50">&nbsp;</div>
 </div>
 
-@endsection
